@@ -144,6 +144,7 @@ section {
 }
 
 h1, h2, h3 { font-family: var(--font-title); }
+h2, h3 { white-space: nowrap; } /* Prevent all section & component titles from wrapping on narrow screens */
 
 /* ==========================================================================
    Scene 1: Intro (Curtain & 4 Full-screen Photo Expansions)
@@ -187,14 +188,28 @@ h1, h2, h3 { font-family: var(--font-title); }
     will-change: transform, clip-path, opacity;
     opacity: 0;
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%); /* Start clipped to center point */
+    background-color: var(--color-cream); /* Fill letterbox space with cream theme color */
 }
 .s1-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Show the entire image/screenshot without cropping */
     transform: scale(0.35); /* Start scaled down */
     will-change: transform;
-    filter: brightness(0.8);
+    filter: brightness(0.9); /* Slightly brighter for better text/ui readability */
+}
+
+/* Curtain Container (handles clip-path expansion) */
+#curtain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 95; /* Sits above slides and below text */
+    pointer-events: none;
+    will-change: transform, clip-path, opacity;
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%); /* Start clipped */
 }
 
 /* Colored Curtain Overlay (Left & Right Stage Doors) */
@@ -203,11 +218,11 @@ h1, h2, h3 { font-family: var(--font-title); }
     top: 0;
     width: 50vw;
     height: 100vh;
-    background-color: var(--color-olive);
-    z-index: 95; /* Sits above slides and below text */
+    background-color: var(--color-apricot);
     will-change: transform;
     pointer-events: none;
     transition: none; /* JS driven */
+    overflow: hidden; /* Hide overflowing half of the text wrapper */
 }
 #intro-curtain-left {
     left: 0;
@@ -216,6 +231,32 @@ h1, h2, h3 { font-family: var(--font-title); }
 #intro-curtain-right {
     right: 0;
     transform-origin: right center;
+}
+
+.curtain-text-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.curtain-text-wrapper.left-align {
+    left: 0; /* Left curtain: aligns 100vw wrapper to left edge */
+}
+.curtain-text-wrapper.right-align {
+    right: 0; /* Right curtain: aligns 100vw wrapper to right edge */
+}
+.curtain-title {
+    font-family: var(--font-title);
+    font-size: clamp(1.8rem, 3.5vw, 3.5rem); /* Slightly smaller clamp to fit two lines nicely */
+    color: var(--color-charcoal);
+    text-align: center;
+    line-height: 1.45;
+    opacity: 0;
+    will-change: transform, opacity;
 }
 
 #s1-text-wrapper {
@@ -260,7 +301,7 @@ h1, h2, h3 { font-family: var(--font-title); }
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 800px;
+    max-width: 1000px; /* Widen container for larger text layout */
     padding: 0 20px;
 }
 #s2-1-title {
@@ -271,12 +312,17 @@ h1, h2, h3 { font-family: var(--font-title); }
     will-change: transform, opacity;
 }
 #s2-1-desc {
-    font-size: clamp(1rem, 1.2vw, 1.2rem);
-    line-height: 1.8;
-    color: rgba(250, 248, 245, 0.9);
+    font-size: clamp(1.3rem, 1.8vw, 1.8rem); /* Increased font size for editorial readability */
+    line-height: 1.85;
+    color: var(--color-charcoal); /* High contrast dark charcoal on apricot background */
     opacity: 0; /* Default invisible */
     will-change: transform, opacity;
     word-break: keep-all;
+}
+.reveal-span {
+    opacity: 0.2; /* Subtle dim state by default */
+    will-change: opacity;
+    transition: opacity 0.15s ease-out;
 }
 
 /* ==========================================================================
@@ -352,32 +398,56 @@ h1, h2, h3 { font-family: var(--font-title); }
    Scene 3: Skills
    ========================================================================== */
 #scene-3 { z-index: 20; flex-direction: column; }
-#s3-title { font-size: clamp(2.5rem, 5vw, 5rem); margin-bottom: 4rem; opacity: 0; will-change: transform, opacity; }
+#s3-title { 
+    font-size: clamp(2.5rem, 5vw, 5rem); 
+    margin-bottom: 4rem; 
+    color: var(--color-charcoal); /* Dark text for cream background visibility */
+    font-family: var(--font-title);
+    opacity: 0; /* JS will fade this in */
+    will-change: transform, opacity;
+    white-space: nowrap; /* Prevent title from breaking into multiple lines */
+}
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    max-width: 900px;
+    gap: 20px;
+    max-width: 950px;
     justify-content: center;
     pointer-events: auto;
 }
 .skill-tag {
-    padding: 15px 30px;
-    background: var(--color-cream);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background-color: rgba(var(--tech-color-rgb), 0.28) !important; /* Increased opacity to 28% for highly visible, rich brand color fill */
     border-radius: 50px;
     font-size: 1.1rem;
-    font-weight: 500;
-    box-shadow: 0 10px 30px rgba(44, 44, 44, 0.08);
-    opacity: 0; /* Default invisible */
+    font-weight: 600; /* Bold text for clean presentation */
+    color: var(--color-charcoal); /* Dark charcoal text for high readability */
+    opacity: 0; /* Default invisible, JS controlled */
     will-change: transform, opacity;
-    border: 1px solid rgba(110, 138, 107, 0.2); /* Olive green border */
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1.5px solid rgba(var(--tech-color-rgb), 0.7); /* Thicker, more distinct border at 70% opacity */
+    box-shadow: 0 10px 25px rgba(var(--tech-color-rgb), 0.15), 0 4px 10px rgba(0, 0, 0, 0.05); /* Richer drop shadow */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+    cursor: pointer;
+}
+.skill-tag .tech-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--tech-color); /* Icon uses brand-specific color */
+    transition: color 0.4s ease, transform 0.4s ease;
 }
 .skill-tag:hover {
-    transform: translateY(-5px) scale(1.05) !important;
-    box-shadow: 0 15px 35px rgba(110, 138, 107, 0.15);
-    border-color: rgba(110, 138, 107, 0.5);
-    color: var(--color-olive);
+    transform: translateY(-8px) scale(1.08) !important; /* Force float and zoom on hover over JS transforms */
+    background-color: var(--tech-color) !important; /* Invert to solid brand color on hover */
+    color: var(--color-cream) !important; /* Invert text to cream */
+    border-color: var(--tech-color) !important;
+    box-shadow: 0 18px 40px rgba(var(--tech-color-rgb), 0.35) !important; /* Deep brand shadow glow */
+}
+.skill-tag:hover .tech-icon {
+    color: var(--color-cream) !important; /* Invert icon to cream */
+    transform: scale(1.1) rotate(10deg);
 }
 
 /* ==========================================================================
