@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시네마틱 포트폴리오 | 프론트엔드 개발자</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= Sidebar Navigation ================= -->
+    <nav id="nav-bar" class="theme-light">
+        <a href="#" class="nav-item active" data-p="0.00">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Intro</span>
+        </a>
+        <a href="#" class="nav-item" data-p="0.22">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Identity</span>
+        </a>
+        <a href="#" class="nav-item" data-p="0.60">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Tech Skills</span>
+        </a>
+        <a href="#" class="nav-item" data-p="0.70">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Projects</span>
+        </a>
+        <a href="#" class="nav-item" data-p="0.88">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Co-creation</span>
+        </a>
+        <a href="#" class="nav-item" data-p="0.96">
+            <span class="nav-dot"></span>
+            <span class="nav-label">Contact</span>
+        </a>
+    </nav>
+
+    <!-- Sticky Main Container -->
+    <div id="sticky-container">
+        <!-- 배경 컬러 레이어 -->
+        <div id="bg-cream" class="bg-layer"></div>
+        <div id="bg-apricot" class="bg-layer"></div>
+        <div id="bg-charcoal" class="bg-layer"></div>
+        <div id="bg-cream-2" class="bg-layer"></div>
+        <div id="bg-apricot-light" class="bg-layer"></div>
+        <div id="bg-charcoal-2" class="bg-layer"></div>
+
+        <!-- ================= Scene 1: Intro ================= -->
+        <section id="scene-1">
+            <!-- Static Initial Background Photo (Aesthetic Workspace) -->
+            <div class="s1-background-photo">
+                <img src="https://picsum.photos/id/180/1920/1080" alt="Intro Background Photo 1">
+            </div>
+
+            <!-- 4 Full-Screen Image Slides (Fame-Estate Style) -->
+            <div class="s1-slides-container">
+                <div class="s1-slide" id="s1-slide-1">
+                    <img src="https://picsum.photos/id/160/1920/1080" alt="Intro Photo 2">
+                </div>
+                <div class="s1-slide" id="s1-slide-2">
+                    <img src="https://picsum.photos/id/319/1920/1080" alt="Intro Photo 3">
+                </div>
+                <div class="s1-slide" id="s1-slide-3">
+                    <img src="https://picsum.photos/id/370/1920/1080" alt="Intro Photo 4">
+                </div>
+                <div class="s1-slide" id="s1-slide-4">
+                    <img src="https://picsum.photos/id/60/1920/1080" alt="Intro Photo 5">
+                </div>
+            </div>
+
+            <!-- Intro Curtain Overlay (Stage sliding doors) -->
+            <div id="intro-curtain-left" class="curtain-door"></div>
+            <div id="intro-curtain-right" class="curtain-door"></div>
+
+            <div class="scene-content" style="z-index: 90;">
+                <div id="s1-text-wrapper">
+                    <h1 id="s1-text-main">당신의 생각에 공감을 더해,</h1>
+                    <p id="s1-text-sub">함께 더 나은 코드를 그리는 친화형 개발자.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Scene 2.1: Identity Loop 1 (협업) ================= -->
+        <section id="scene-2-1">
+            <img src="https://picsum.photos/id/312/800/600" class="s2-1-img" id="s2-1-img1" alt="Collaboration 1">
+            <img src="https://picsum.photos/id/156/800/600" class="s2-1-img" id="s2-1-img2" alt="Collaboration 2">
+            <img src="https://picsum.photos/id/292/800/600" class="s2-1-img" id="s2-1-img3" alt="Collaboration 3">
+            <div id="s2-1-content">
+                <h2 id="s2-1-title">세상에 틀린 코드는 없다</h2>
+                <p id="s2-1-desc">팀원 하나하나의 치열한 고민이 담긴 코드는 각자의 합당한 이유가 있다고 믿습니다. 코드 리뷰는 비판이 아닌, 서로의 의도를 묻고 더 나은 방향을 함께 찾아가는 '페어 프로그래밍'의 연장선입니다. 긍정적인 피드백과 적극적인 수용으로 팀의 심리적 안전감을 높이고, 시너지를 폭발시킵니다.</p>
+            </div>
+        </section>
+
+        <!-- ================= Scene 2.2: Identity Loop 2 (유연성) ================= -->
+        <section id="scene-2-2">
+            <div id="s2-2-img-wrapper">
+                <img src="https://picsum.photos/id/390/1920/1080" id="s2-2-img" alt="Flexibility">
+                <div id="s2-2-overlay"></div>
+            </div>
+            <div id="s2-2-content">
+                <h2 id="s2-2-title">프로젝트에 스며드는 카멜레온</h2>
+                <p id="s2-2-desc">스타트업이나 기획이 빠르게 변하는 환경에서는 완벽함보다 타이밍이 중요할 때가 있습니다. 빠른 MVP(Minimum Viable Product) 빌드로 시장의 반응을 먼저 살피고, 단순 반복되는 워크플로우를 자동화하여 팀의 리소스를 핵심 비즈니스 로직에 집중할 수 있도록 유연하게 대처합니다.</p>
+            </div>
+        </section>
+
+        <!-- ================= Scene 2.3: Identity Loop 3 (소통) ================= -->
+        <section id="scene-2-3">
+            <div id="s2-3-layout">
+                <div id="s2-3-left">
+                    <img src="https://picsum.photos/id/660/1000/1500" id="s2-3-img" alt="Communication">
+                </div>
+                <div id="s2-3-right">
+                    <h2 id="s2-3-title">경청에서 대안을 찾는<br>네비게이터</h2>
+                    <p id="s2-3-desc">기획자, 디자이너, 때로는 고객의 목소리까지. 다양한 직군의 언어를 이해하고 번역하여 기술적인 대안을 제시합니다. 막연한 요구사항 속에서 핵심을 파악하고, 기술적 제약 안에서도 모두가 만족할 수 있는 최선의 타협점, 즉 가장 합리적인 '네비게이션 경로'를 탐색합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Scene 3: Skills ================= -->
+        <section id="scene-3">
+            <h2 id="s3-title">Tech & Capabilities</h2>
+            <div class="skills-grid" id="s3-tags">
+                <div class="skill-tag">React / Vue 3</div>
+                <div class="skill-tag">Vanilla JS / TypeScript</div>
+                <div class="skill-tag">HTML5 / CSS3</div>
+                <div class="skill-tag">웹 보안 (OWASP Top 10)</div>
+                <div class="skill-tag">AWS (EC2, S3)</div>
+                <div class="skill-tag">CI/CD (GitHub Actions)</div>
+                <div class="skill-tag">Git / GitHub</div>
+                <div class="skill-tag">Agile / Scrum</div>
+            </div>
+        </section>
+
+        <!-- ================= Scene 4: Projects (횡스크롤) ================= -->
+        <section id="scene-4">
+            <div class="h-scroll-wrapper" id="s4-wrapper">
+                <div class="project-track" id="s4-track">
+                    <div class="project-card">
+                        <img src="https://picsum.photos/id/367/600/400" class="p-img" alt="Project 1">
+                        <div class="p-content">
+                            <span class="p-stack">Vue 3, Pinia, AWS</span>
+                            <h3 class="p-title">Next-Gen 에듀테크 플랫폼</h3>
+                            <p class="p-desc">실시간 화상 강의 및 인터랙티브 화이트보드 기능 구현을 통해 학습의 물리적 경계를 허문 플랫폼입니다.</p>
+                            <a href="#" class="p-link">View GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://picsum.photos/id/160/600/400" class="p-img" alt="Project 2">
+                        <div class="p-content">
+                            <span class="p-stack">React, TypeScript, OWASP</span>
+                            <h3 class="p-title">안전한 중고거래 모바일 웹</h3>
+                            <p class="p-desc">종단간 암호화 채팅 및 XSS/CSRF 방어 로직을 완벽하게 적용하여 사용자의 신뢰를 최우선으로 확보했습니다.</p>
+                            <a href="#" class="p-link">View GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://picsum.photos/id/488/600/400" class="p-img" alt="Project 3">
+                        <div class="p-content">
+                            <span class="p-stack">Vanilla JS, Node.js</span>
+                            <h3 class="p-title">사내 워크플로우 자동화 툴</h3>
+                            <p class="p-desc">사내 반복 업무를 스크립팅으로 자동화하여 부서 전체의 평균 업무 시간을 40% 이상 단축시켰습니다.</p>
+                            <a href="#" class="p-link">View GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://picsum.photos/id/3/600/400" class="p-img" alt="Project 4">
+                        <div class="p-content">
+                            <span class="p-stack">React Native, Redux</span>
+                            <h3 class="p-title">소셜 기반 루틴 트래커</h3>
+                            <p class="p-desc">사용자간 루틴 공유 및 응원 기능, 오프라인 모드를 지원하여 지속가능한 습관 형성을 돕습니다.</p>
+                            <a href="#" class="p-link">View GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://picsum.photos/id/180/600/400" class="p-img" alt="Project 5">
+                        <div class="p-content">
+                            <span class="p-stack">Vue 3, OpenAI API</span>
+                            <h3 class="p-title">AI 기반 코드 리뷰어</h3>
+                            <p class="p-desc">깃허브 PR 생성 시 AI가 팀 컨벤션 및 보안 취약점을 자동 리뷰하여 시니어의 코드 리뷰 부담을 줄입니다.</p>
+                            <a href="#" class="p-link">View GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://picsum.photos/id/355/600/400" class="p-img" alt="Project 6">
+                        <div class="p-content">
+                            <span class="p-stack">HTML/CSS/JS</span>
+                            <h3 class="p-title">SSAFY 16기 네트워킹 허브</h3>
+                            <p class="p-desc">기수 동기들간의 포트폴리오 공유 및 익명 피드백 시스템을 구축하여 함께 성장하는 문화를 주도했습니다.</p>
+                            <a href="#" class="p-link">View GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Scene 5: Co-creation (독백 타임라인) ================= -->
+        <section id="scene-5">
+            <!-- 88~90% -->
+            <div id="s5-q-wrapper" class="s5-step">
+                <h2 class="s5-question">어떤 스타일의 개발 동료가 필요하신가요?</h2>
+            </div>
+            
+            <!-- 90.5~93% -->
+            <div id="s5-a1-wrapper" class="s5-step">
+                <h3 class="s5-title" id="s5-a1-title">의견 충돌이 생겼을 때,</h3>
+                <p class="s5-desc" id="s5-a1-desc">건강한 의견 충돌은 더 단단한 아키텍처를 만듭니다.<br>감정을 배제하고 논리와 데이터를 기반으로 최선의 방향을 토론할 준비가 되어 있습니다.</p>
+            </div>
+            
+            <!-- 92.5~95% -->
+            <div id="s5-a2-wrapper" class="s5-step">
+                <h3 class="s5-title" id="s5-a2-title">빠른 MVP 빌드가 필요할 때,</h3>
+                <p class="s5-desc" id="s5-a2-desc">시장 검증이 먼저인 상황에서는 클린 코드의 강박을 내려놓고,<br>핵심 기능 위주로 빠르게 프로토타입을 빌드업하여 비즈니스 속도를 맞춥니다.</p>
+            </div>
+            
+            <!-- 94.5~97% -->
+            <div id="s5-a3-wrapper" class="s5-step">
+                <h3 class="s5-title" id="s5-a3-title">기술적 깊이가 필요한 순간,</h3>
+                <p class="s5-desc" id="s5-a3-desc">새로운 스택이나 깊이 있는 원리 파악이 필요할 때,<br>먼저 학습하고 문서화하여 팀원들에게 지식을 전파하는 사내 스터디 리더가 되겠습니다.</p>
+            </div>
+        </section>
+
+        <!-- ================= Scene 6: Outro & Contact ================= -->
+        <section id="scene-6">
+            <h2 id="s6-main">끝까지 살펴봐 주셔서 감사합니다.</h2>
+            <p id="s6-sub">커피 한잔하며 더 이야기 나눠요</p>
+            <div class="s6-links" id="s6-links">
+                <a href="#" class="s6-link">Email</a>
+                <a href="#" class="s6-link">KakaoTalk</a>
+                <a href="#" class="s6-link">GitHub</a>
+                <a href="#" class="s6-link">Velog</a>
+            </div>
+            <footer id="footer">
+                <p>© 2026 Crafted with pure Vanilla Code. SSAFY 16th Portfolio.</p>
+            </footer>
+        </section>
+
+    </div>
+
+    <!-- Script Entry -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>
