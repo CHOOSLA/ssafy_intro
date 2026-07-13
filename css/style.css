@@ -430,7 +430,7 @@ h2, h3 { white-space: nowrap; } /* Prevent all section & component titles from w
     border: 1.5px solid rgba(var(--tech-color-rgb), 0.7); /* Thicker, more distinct border at 70% opacity */
     box-shadow: 0 10px 25px rgba(var(--tech-color-rgb), 0.15), 0 4px 10px rgba(0, 0, 0, 0.05); /* Richer drop shadow */
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease;
-    cursor: pointer;
+    cursor: default; /* Changed from pointer to default to prevent click indicators */
 }
 .skill-tag .tech-icon {
     width: 20px;
