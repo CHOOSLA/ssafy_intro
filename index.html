@@ -42,7 +42,8 @@
     <div id="film-progress" class="pointer-events-none fixed top-0 left-0 z-[1200] h-[3px] w-full">
         <div id="film-progress-fill" class="h-full w-full origin-left scale-x-0 bg-apricot will-change-transform"></div>
         <span class="absolute top-0 left-[22%] h-full w-[2px] bg-charcoal/30" title="가치관"></span>
-        <span class="absolute top-0 left-[60%] h-full w-[2px] bg-charcoal/30" title="기술 역량"></span>
+        <span class="absolute top-0 left-[56%] h-full w-[2px] bg-charcoal/30" title="프로필"></span>
+        <span class="absolute top-0 left-[63%] h-full w-[2px] bg-charcoal/30" title="기술 역량"></span>
         <span class="absolute top-0 left-[70%] h-full w-[2px] bg-charcoal/30" title="프로젝트"></span>
         <span class="absolute top-0 left-[88%] h-full w-[2px] bg-charcoal/30" title="협업 스타일"></span>
         <span class="absolute top-0 left-[96%] h-full w-[2px] bg-charcoal/30" title="연락처"></span>
@@ -68,7 +69,11 @@
             <span class="nav-dot"></span>
             <span class="nav-label">가치관</span>
         </a>
-        <a href="#" class="nav-item" data-p="0.60">
+        <a href="#" class="nav-item" data-p="0.57">
+            <span class="nav-dot"></span>
+            <span class="nav-label">프로필</span>
+        </a>
+        <a href="#" class="nav-item" data-p="0.64">
             <span class="nav-dot"></span>
             <span class="nav-label">기술 역량</span>
         </a>
@@ -176,6 +181,54 @@
                 <div id="s2-3-right">
                     <h2 id="s2-3-title">"경청에서 대안을 찾는 네비게이터"<br>— 공감 중심의 소통가</h2>
                     <p id="s2-3-desc">개발을 '견고한 하나의 건물을 올리는 여정'으로 바라봅니다. 그 힘든 여정 속에서 발생하는 마찰과 어려움을 단순한 소음이 아닌 '가치를 높이기 위한 과정'으로 받아들입니다. 동료들의 목소리를 경청하고 공감하여, 모두가 만족할 수 있는 최선의 방향성을 제시합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Scene About: 주인공 프로필 카드 (rotateY 플립) ================= -->
+        <section id="scene-about">
+            <div class="flex flex-col items-center gap-8">
+                <div id="sa-heading" class="text-center will-change-[transform,opacity] opacity-0">
+                    <p class="mb-3 text-sm font-bold tracking-[4px] text-olive">PROFILE</p>
+                    <h2 class="font-batang text-[clamp(1.8rem,3vw,3rem)] text-charcoal">이 영화의 주인공을 소개합니다</h2>
+                </div>
+
+                <!-- 클립 리빌 래퍼 → 스케일 래퍼(perspective) → 카드(rotateY) -->
+                <div id="sa-clip">
+                    <div id="sa-scale">
+                        <div id="sa-card-inner">
+                            <!-- 앞면: 사진 -->
+                            <div class="sa-face sa-front">
+                                <img id="sa-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1067&fit=crop&q=80" alt="추창우 프로필 사진 (교체 예정)">
+                                <div class="sa-front-name">
+                                    <span class="font-batang">추창우</span>
+                                </div>
+                            </div>
+                            <!-- 뒷면: 프로필 스탯 -->
+                            <div class="sa-face sa-back">
+                                <div class="sa-item">
+                                    <span class="sa-label">이름</span>
+                                    <span class="sa-value font-batang">추창우</span>
+                                </div>
+                                <div class="sa-item">
+                                    <span class="sa-label">MBTI</span>
+                                    <span class="sa-value font-batang">ESFP</span>
+                                </div>
+                                <div class="sa-item">
+                                    <span class="sa-label">거주지</span>
+                                    <span class="sa-value font-batang">수원</span>
+                                </div>
+                                <div class="sa-item">
+                                    <span class="sa-label">관심 분야</span>
+                                    <span class="sa-value font-batang">현재는 백엔드</span>
+                                </div>
+                                <div class="sa-item">
+                                    <span class="sa-label">취미</span>
+                                    <span class="sa-value font-batang">탁구 <em class="sa-new">NEW</em>, 볼링</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

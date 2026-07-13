@@ -403,6 +403,104 @@ h2, h3 { white-space: nowrap; } /* Prevent all section & component titles from w
 #s2-3-desc { font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.8; color: rgba(44, 44, 44, 0.8); opacity: 0; will-change: transform, opacity; word-break: keep-all; }
 
 /* ==========================================================================
+   Scene About: 주인공 프로필 카드 (fame-estate rotateY 스크럽 이식)
+   ========================================================================== */
+#scene-about { z-index: 20; }
+
+/* 클립 리빌 래퍼: 인트로 슬라이드와 동일한 clip-path 확장 기법 */
+#sa-clip {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    opacity: 0;
+    will-change: clip-path, opacity;
+}
+
+/* 스케일 래퍼: 클립 확장 시 역보정 스케일 + 3D 원근 무대 */
+#sa-scale {
+    perspective: 1400px;
+    transform: scale(0.35);
+    will-change: transform;
+}
+
+/* 카드 본체: rotateY 스크럽 대상 */
+#sa-card-inner {
+    position: relative;
+    width: min(38vh, 78vw);
+    aspect-ratio: 3 / 4;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.sa-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 25px 60px rgba(44, 44, 44, 0.18);
+}
+
+.sa-front { background: var(--color-charcoal); }
+.sa-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sa-front-name {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18px 24px;
+    background: linear-gradient(transparent, rgba(53, 47, 44, 0.85));
+    color: var(--color-cream);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+/* 뒷면: 미리 180도 돌려두면 backface-visibility가 앞/뒤 교체를 자동 처리 */
+.sa-back {
+    transform: rotateY(180deg);
+    background: var(--color-cream);
+    border: 1.5px solid rgba(232, 156, 124, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.35rem;
+    padding: 9% 11%;
+}
+.sa-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+.sa-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--color-olive);
+}
+.sa-value {
+    font-size: clamp(1.25rem, 2.1vh, 1.7rem);
+    color: var(--color-charcoal);
+    white-space: nowrap;
+}
+.sa-new {
+    font-style: normal;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-cream);
+    background: var(--color-apricot);
+    border-radius: 999px;
+    padding: 2px 8px;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+/* ==========================================================================
    Scene 3: Skills
    ========================================================================== */
 #scene-3 { z-index: 20; flex-direction: column; }
