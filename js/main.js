@@ -39,6 +39,24 @@ function getClipPolygon(t) {
     return `polygon(${x1}% ${y1}%, ${x2}% ${y2}%, ${x3}% ${y3}%, ${x4}% ${y4}%)`;
 }
 
+// 두 단계로 확장되는 clip-path 폴리곤 생성 함수 (fame-estate.com 정밀 복제)
+// t = 0 ~ 0.375 : 상하(세로)로 먼저 얇은 선 모양으로 팽창
+// t = 0.375 ~ 1.0 : 좌우(가로)로 팽창하여 화면 전체를 덮음
+function getTwoStepClipPolygon(t) {
+    const thinWidth = 0.275; // 중앙 세로선의 절반 두께 (%)
+    
+    if (t < 0.375) {
+        let yProgress = mapRange(t, 0, 0.375, 50, 0);
+        let x1 = 50 - thinWidth;
+        let x2 = 50 + thinWidth;
+        return `polygon(${x1}% ${yProgress}%, ${x2}% ${yProgress}%, ${x2}% ${100 - yProgress}%, ${x1}% ${100 - yProgress}%)`;
+    } else {
+        let xProgress = mapRange(t, 0.375, 1.0, 50 - thinWidth, 0);
+        return `polygon(${xProgress}% 0%, ${100 - xProgress}% 0%, ${100 - xProgress}% 100%, ${xProgress}% 100%)`;
+    }
+}
+
+
 // 개별 사진 클립패스 확장 & 이미지 스케일 트윈 함수
 function animateClipExpand(slideEl, imgEl, t, hidePhotos) {
     if (hidePhotos || t <= 0) {
@@ -66,6 +84,7 @@ const DOM = {
     },
     s1: {
         section: document.getElementById('scene-1'),
+        curtainContainer: document.getElementById('curtain-container'),
         curtainLeft: document.getElementById('intro-curtain-left'),
         curtainRight: document.getElementById('intro-curtain-right'),
         textWrapper: document.getElementById('s1-text-wrapper'),
@@ -76,14 +95,12 @@ const DOM = {
         img1: document.querySelector('#s1-slide-1 img'),
         img2: document.querySelector('#s1-slide-2 img'),
         img3: document.querySelector('#s1-slide-3 img'),
-        img4: document.querySelector('#s1-slide-4 img')
+        img4: document.querySelector('#s1-slide-4 img'),
+        curtainTitles: document.querySelectorAll('.curtain-title')
     },
     s2_1: {
-        img1: document.getElementById('s2-1-img1'),
-        img2: document.getElementById('s2-1-img2'),
-        img3: document.getElementById('s2-1-img3'),
-        title: document.getElementById('s2-1-title'),
-        desc: document.getElementById('s2-1-desc')
+        desc: document.getElementById('s2-1-desc'),
+        spans: document.querySelectorAll('#s2-1-desc .reveal-span')
     },
     s2_2: {
         imgWrapper: document.getElementById('s2-2-img-wrapper'),
@@ -98,7 +115,7 @@ const DOM = {
     },
     s3: {
         title: document.getElementById('s3-title'),
-        tags: document.querySelectorAll('.skill-tag')
+        tags: document.querySelectorAll('#s3-tags .skill-tag')
     },
     s4: {
         wrapper: document.getElementById('s4-wrapper'),
@@ -136,7 +153,8 @@ function render() {
     if (p > 1) p = 1;
 
     // ================= Background Sequence =================
-    DOM.bgs.apricot.style.opacity = mapRange(p, 0.15, 0.18, 0, 1) - mapRange(p, 0.33, 0.35, 0, 1);
+    // 커튼이 다시 가려지는 구간(p = 0.18 ~ 0.20) 동안 자연스럽게 뒷배경 색상을 살구색(Apricot)으로 미리 세팅
+    DOM.bgs.apricot.style.opacity = mapRange(p, 0.18, 0.20, 0, 1) - mapRange(p, 0.33, 0.35, 0, 1);
     DOM.bgs.charcoal.style.opacity = mapRange(p, 0.33, 0.36, 0, 1) - mapRange(p, 0.46, 0.49, 0, 1);
     DOM.bgs.cream2.style.opacity = mapRange(p, 0.46, 0.49, 0, 1) - mapRange(p, 0.86, 0.88, 0, 1);
     DOM.bgs.apricotLight.style.opacity = mapRange(p, 0.86, 0.89, 0, 1) - mapRange(p, 0.95, 0.97, 0, 1);
@@ -144,7 +162,7 @@ function render() {
 
     // ================= Navbar Theme & Active Dot =================
     const navBar = document.getElementById('nav-bar');
-    if (p < 0.15 || (p >= 0.33 && p < 0.46) || p >= 0.95) {
+    if (p < 0.18 || (p >= 0.33 && p < 0.46) || p >= 0.95) {
         navBar.className = 'theme-light'; // 어두운 슬라이드/배경 위 흰색 글자
     } else {
         navBar.className = 'theme-dark'; // 밝은 배경 위 어두운 글자
@@ -168,71 +186,99 @@ function render() {
 
     // ================= Scene 1: Intro (0 ~ 0.22) =================
     
-    // 1. 무대 커튼 오프닝 & 클로징 연출 (슬라이딩 도어)
-    let curtainTranslate = 0; 
+    // 1. 무대 커튼 오프닝 & 클로징 연출 (확장 + 스플릿 하이브리드)
+    let curtainT = 0;
+    let leftDoorX = 0;
+    let rightDoorX = 0;
+    let curtainOpacity = 1;
+    let cTitleOpacity = 0;
+    let cTitleScale = 0.35;
+    let zIndex = 9; // 기본적으로 슬라이드(z-index: 10) 아래에 배치
     
     if (p < 0.03) {
-        // [초기 상태] 커튼 열림
-        curtainTranslate = -100;
-    } else if (p >= 0.03 && p < 0.05) {
-        // [스크롤 시작] 초록색 커튼 닫힘
-        curtainTranslate = mapRange(p, 0.03, 0.05, -100, 0);
-    } else if (p >= 0.05 && p < 0.15) {
-        // [사진 확대 중] 커튼 열림 유지
-        curtainTranslate = -100;
-    } else if (p >= 0.15 && p < 0.17) {
-        // [사진 확대 완료 후] 커튼 닫힘
-        curtainTranslate = mapRange(p, 0.15, 0.17, -100, 0);
-    } else if (p >= 0.17 && p < 0.20) {
-        // [Identity 공개] 커튼 다시 열림
-        curtainTranslate = mapRange(p, 0.17, 0.20, 0, -100);
+        curtainT = 0;
+        curtainOpacity = 0;
+    } else if (p >= 0.03 && p < 0.06) {
+        // [첫 스크롤 시작] 커튼이 중앙에서 상하->좌우 순으로 확장되어 전체를 덮음
+        curtainT = easeOutCubic(mapRange(p, 0.03, 0.06, 0, 1));
+        curtainOpacity = 1;
+        zIndex = 9;
+    } else if (p >= 0.06 && p < 0.15) {
+        // [사진 확대 중] 커튼은 완전히 가린 상태(T=1)를 유지하며, 슬라이드 뒤의 배경판 역할 수행
+        curtainT = 1;
+        curtainOpacity = 1;
+        zIndex = 9;
+    } else if (p >= 0.15 && p < 0.18) {
+        // [그린 슬라이드 2차 등장] 커튼이 슬라이드 위로 올라와(z-index: 95) 상하->좌우 순으로 확장되며 사진 4를 덮음
+        curtainT = easeOutCubic(mapRange(p, 0.15, 0.18, 0, 1));
+        curtainOpacity = 1;
+        zIndex = 95;
+        cTitleOpacity = mapRange(p, 0.15, 0.165, 0, 1);
+        cTitleScale = mapRange(p, 0.15, 0.18, 0.35, 1.0);
+    } else if (p >= 0.18 && p < 0.21) {
+        // [커튼 좌우 쪼개짐] 확장 완료 후 문이 양옆으로 슬라이드 열림
+        curtainT = 1;
+        curtainOpacity = 1;
+        leftDoorX = mapRange(p, 0.18, 0.21, 0, -100);
+        rightDoorX = mapRange(p, 0.18, 0.21, 0, 100);
+        zIndex = 95;
+        cTitleOpacity = 1;
+        cTitleScale = 1.0;
     } else {
-        curtainTranslate = -100;
+        curtainT = 1;
+        curtainOpacity = 0;
+        zIndex = 95;
     }
     
-    DOM.s1.curtainLeft.style.transform = `translateX(${curtainTranslate}%)`;
-    DOM.s1.curtainRight.style.transform = `translateX(${-curtainTranslate}%)`;
+    DOM.s1.curtainContainer.style.clipPath = getTwoStepClipPolygon(curtainT);
+    DOM.s1.curtainContainer.style.opacity = curtainOpacity;
+    DOM.s1.curtainContainer.style.zIndex = zIndex;
+    DOM.s1.curtainLeft.style.transform = `translateX(${leftDoorX}%)`;
+    DOM.s1.curtainRight.style.transform = `translateX(${rightDoorX}%)`;
+
+    DOM.s1.curtainTitles.forEach(el => {
+        el.style.opacity = cTitleOpacity;
+        el.style.transform = `scale(${cTitleScale})`;
+    });
 
     // 2. 메인 글씨 페이드아웃 (커튼이 닫히기 시작할 때 빠르게 투명화)
     let textOpacity = 1 - mapRange(p, 0.03, 0.045, 0, 1);
     DOM.s1.textWrapper.style.opacity = textOpacity;
 
-    // 3. 4장 연속 전체화면 사진 확장 (겹침 오버랩 + Cubic Ease-Out 감속 이징 결합)
-    // 엇갈려서 겹치는(Stagger Overlap) 범위를 지정하여 타이트하게 이미지가 이어짐
-    let t1 = mapRange(p, 0.05, 0.09, 0, 1);
-    let t2 = mapRange(p, 0.07, 0.11, 0, 1);
-    let t3 = mapRange(p, 0.09, 0.13, 0, 1);
-    let t4 = mapRange(p, 0.11, 0.15, 0, 1);
+    // 3. 4장 연속 전체화면 사진 확장 (커튼이 완전히 닫힌 0.06부터 차례로 시작하도록 범위 보정)
+    let t1 = mapRange(p, 0.06, 0.09, 0, 1);
+    let t2 = mapRange(p, 0.08, 0.11, 0, 1);
+    let t3 = mapRange(p, 0.10, 0.13, 0, 1);
+    let t4 = mapRange(p, 0.12, 0.15, 0, 1);
     
-    // 두 번째 커튼이 닫히는 구간(p >= 0.15) 이후에는 모든 이미지 숨김
-    let hidePhotos = p >= 0.15 ? true : false;
+    let hidePhotos = p >= 0.18 ? true : false;
 
     animateClipExpand(DOM.s1.slide1, DOM.s1.img1, t1, hidePhotos);
     animateClipExpand(DOM.s1.slide2, DOM.s1.img2, t2, hidePhotos);
     animateClipExpand(DOM.s1.slide3, DOM.s1.img3, t3, hidePhotos);
     animateClipExpand(DOM.s1.slide4, DOM.s1.img4, t4, hidePhotos);
 
-    // 커튼이 두 번째로 닫히고 열리는 시점(p >= 0.18 ~ 0.21) 인트로 씬 컨텐츠 완전히 페이드아웃
-    DOM.s1.section.style.opacity = 1 - mapRange(p, 0.18, 0.21, 0, 1);
+    // 커튼이 두 번째로 완전히 닫히는 순간(p = 0.18 ~ 0.20) 씬 1의 모든 이미지 레이어 완전히 투명화
+    DOM.s1.section.style.opacity = 1 - mapRange(p, 0.18, 0.20, 0, 1);
 
     // ================= Scene 2.1: Collab (Identity) (0.22 ~ 0.35) =================
-    // 커튼이 다시 열리면서(p >= 0.17) 자연스럽게 Identity 내용들이 순차 등장
+    // fame-estate의 "We sell real estate..." 공개 트래킹 완벽 이식:
+    // 커튼이 두 번째로 가려진 후 다시 열리는 순간(p >= 0.17)에 맞춰,
+    // 아래에 깔려 있던 Scene 2.1(이 세상에 틀린 코드는 없다)의 대제목과 설명글이 페이드인하며 정면으로 등장!
     const s21Out = mapRange(p, 0.33, 0.35, 0, 1);
     
-    DOM.s2_1.img1.style.opacity = mapRange(p, 0.19, 0.21, 0, 1) - s21Out;
-    DOM.s2_1.img1.style.transform = `translateY(${mapRange(p, 0.19, 0.21, 50, 0)}px)`;
-    
-    DOM.s2_1.img2.style.opacity = mapRange(p, 0.20, 0.22, 0, 1) - s21Out;
-    DOM.s2_1.img2.style.transform = `translateY(${mapRange(p, 0.20, 0.22, 50, 0)}px)`;
-    
-    DOM.s2_1.img3.style.opacity = mapRange(p, 0.21, 0.23, 0, 1) - s21Out;
-    DOM.s2_1.img3.style.transform = `translateY(${mapRange(p, 0.21, 0.23, 50, 0)}px)`;
+    // 설명글 페이드인 (커튼 개방 타이밍인 0.18~0.21에 동기화)
+    DOM.s2_1.desc.style.opacity = mapRange(p, 0.18, 0.21, 0, 1) - s21Out;
+    DOM.s2_1.desc.style.transform = `translateY(${mapRange(p, 0.18, 0.21, 30, 0)}px)`;
 
-    DOM.s2_1.title.style.opacity = mapRange(p, 0.22, 0.24, 0, 1) - s21Out;
-    DOM.s2_1.title.style.transform = `translateY(${mapRange(p, 0.22, 0.24, 30, 0)}px)`;
+    // 스크롤 진행에 따른 구절별 하이라이트 (0.21부터 0.31까지 5단계 순차 전개)
+    DOM.s2_1.spans.forEach((span, idx) => {
+        let startP = 0.21 + idx * 0.02; // 0.21, 0.23, 0.25, 0.27, 0.29
+        let endP = startP + 0.02;
+        let spanOpacity = mapRange(p, startP, endP, 0.2, 1.0);
+        span.style.opacity = spanOpacity;
+    });
 
-    DOM.s2_1.desc.style.opacity = mapRange(p, 0.24, 0.26, 0, 1) - s21Out;
-    DOM.s2_1.desc.style.transform = `translateY(${mapRange(p, 0.24, 0.26, 30, 0)}px)`;
 
     // ================= Scene 2.2: Flexibility (0.35 ~ 0.48) =================
     const s22Out = mapRange(p, 0.46, 0.48, 0, 1);
@@ -264,14 +310,37 @@ function render() {
     // ================= Scene 3: Skills (0.60 ~ 0.70) =================
     const s3Out = mapRange(p, 0.68, 0.70, 0, 1);
     
-    DOM.s3.title.style.opacity = mapRange(p, 0.60, 0.62, 0, 1) - s3Out;
-    DOM.s3.title.style.transform = `translateY(${mapRange(p, 0.60, 0.62, 30, 0)}px)`;
+    // 제목 페이드인 & 슬라이드 업
+    DOM.s3.title.style.opacity = mapRange(p, 0.58, 0.60, 0, 1) - s3Out;
+    DOM.s3.title.style.transform = `translateY(${mapRange(p, 0.58, 0.60, 30, 0) - mapRange(p, 0.68, 0.70, 0, -30)}px)`;
 
-    DOM.s3.tags.forEach((tag, index) => {
-        let start = 0.61 + (index * 0.005);
-        let end = start + 0.02;
-        tag.style.opacity = mapRange(p, start, end, 0, 1) - s3Out;
-        tag.style.transform = `scale(${mapRange(p, start, end, 0.8, 1)}) translateY(${mapRange(p, start, end, 20, 0)}px)`;
+    // 각 태그별 공중 비산(Scatter) 좌표 사전 구성 (3D 분산)
+    const scatterOffsets = [
+        { x: -140, y: -90, r: -35 },
+        { x: 120, y: -130, r: 25 },
+        { x: -90, y: 140, r: -40 },
+        { x: 150, y: 80, r: 35 },
+        { x: -130, y: -70, r: -20 },
+        { x: 90, y: -110, r: 40 },
+        { x: -60, y: 130, r: -15 },
+        { x: 110, y: 100, r: 30 }
+    ];
+
+    // 스크롤 진행에 맞춰 태그들이 사방에서 모여들어 격자판에 안착하는 모션
+    DOM.s3.tags.forEach((tag, idx) => {
+        let start = 0.59 + (idx * 0.005); // 약간의 스태거 시차
+        let end = start + 0.045;
+        let t = easeOutCubic(mapRange(p, start, end, 0, 1));
+        
+        // 흩어짐에서 제자리로 수렴하는 계산
+        let currentX = scatterOffsets[idx].x * (1 - t);
+        let currentY = scatterOffsets[idx].y * (1 - t);
+        let currentR = scatterOffsets[idx].r * (1 - t);
+        let currentScale = mapRange(t, 0, 1, 0.3, 1.0);
+        let currentOpacity = t - s3Out;
+        
+        tag.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) rotate(${currentR}deg) scale(${currentScale})`;
+        tag.style.opacity = currentOpacity;
     });
 
     // ================= Scene 4: Projects (0.70 ~ 0.88) =================
