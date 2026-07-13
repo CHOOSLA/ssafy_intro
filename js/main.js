@@ -162,10 +162,15 @@ function render() {
 
     // ================= Navbar Theme & Active Dot =================
     const navBar = document.getElementById('nav-bar');
+    const globalNav = document.getElementById('global-nav');
     if (p < 0.18 || (p >= 0.33 && p < 0.46) || p >= 0.95) {
         navBar.className = 'theme-light'; // 어두운 슬라이드/배경 위 흰색 글자
+        globalNav.classList.add('theme-light');
+        globalNav.classList.remove('theme-dark');
     } else {
         navBar.className = 'theme-dark'; // 밝은 배경 위 어두운 글자
+        globalNav.classList.add('theme-dark');
+        globalNav.classList.remove('theme-light');
     }
 
     let activeIdx = 0;

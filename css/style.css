@@ -116,6 +116,14 @@ body {
     color: var(--color-charcoal); /* Charcoal text */
 }
 
+/* Global Navigation (MPA) — 씬 배경색에 따라 사이드 네비와 동일한 테마 전환 */
+#global-nav.theme-light {
+    color: rgba(250, 248, 245, 0.92);
+}
+#global-nav.theme-dark {
+    color: var(--color-charcoal);
+}
+
 /* ==========================================================================
    Scene Layouts
    ========================================================================== */

@@ -11,10 +11,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
 
+    <!-- Tailwind CSS (CDN) + 브랜드 디자인 토큰 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF8F5',
+                        apricot: '#E89C7C',
+                        'apricot-light': '#F7DCD0',
+                        charcoal: '#352F2C',
+                        olive: '#6E8A6B'
+                    },
+                    fontFamily: {
+                        batang: ['"Gowun Batang"', 'serif'],
+                        round: ['NanumSquareRound', '"Noto Sans KR"', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- ================= Global Navigation (MPA 공통 컴포넌트) ================= -->
+    <header id="global-nav" class="theme-light fixed top-0 left-0 z-[1100] flex w-full items-center justify-between px-6 py-5 pointer-events-none transition-colors duration-300 md:px-10">
+        <a href="index.html" class="pointer-events-auto font-batang text-lg font-bold tracking-wider">추창우</a>
+        <nav class="pointer-events-auto flex items-center gap-5 font-round text-sm md:gap-8">
+            <a href="index.html" aria-current="page" class="opacity-60 transition-opacity hover:opacity-100 aria-[current=page]:font-bold aria-[current=page]:opacity-100 aria-[current=page]:underline aria-[current=page]:underline-offset-8">본편</a>
+            <a href="projects.html" class="opacity-60 transition-opacity hover:opacity-100 aria-[current=page]:font-bold aria-[current=page]:opacity-100 aria-[current=page]:underline aria-[current=page]:underline-offset-8">아카이브</a>
+            <a href="guestbook.html" class="opacity-60 transition-opacity hover:opacity-100 aria-[current=page]:font-bold aria-[current=page]:opacity-100 aria-[current=page]:underline aria-[current=page]:underline-offset-8">방명록</a>
+        </nav>
+    </header>
 
     <!-- ================= Sidebar Navigation ================= -->
     <nav id="nav-bar" class="theme-light">
