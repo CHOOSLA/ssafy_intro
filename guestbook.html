@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록 | 추창우</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) + 브랜드 디자인 토큰 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF8F5',
+                        apricot: '#E89C7C',
+                        'apricot-light': '#F7DCD0',
+                        charcoal: '#352F2C',
+                        olive: '#6E8A6B'
+                    },
+                    fontFamily: {
+                        batang: ['"Gowun Batang"', 'serif'],
+                        round: ['NanumSquareRound', '"Noto Sans KR"', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-cream font-round text-charcoal">
+
+    <!-- ================= Global Navigation (MPA 공통 컴포넌트) ================= -->
+    <header id="global-nav" class="theme-dark fixed top-0 left-0 z-[1100] flex w-full items-center justify-between bg-cream/80 px-6 py-5 backdrop-blur-sm transition-colors duration-300 md:px-10">
+        <a href="index.html" class="font-batang text-lg font-bold tracking-wider">추창우</a>
+        <nav class="flex items-center gap-5 font-round text-sm md:gap-8">
+            <a href="index.html" class="opacity-60 transition-opacity hover:opacity-100 aria-[current=page]:font-bold aria-[current=page]:opacity-100 aria-[current=page]:underline aria-[current=page]:underline-offset-8">본편</a>
+            <a href="projects.html" class="opacity-60 transition-opacity hover:opacity-100 aria-[current=page]:font-bold aria-[current=page]:opacity-100 aria-[current=page]:underline aria-[current=page]:underline-offset-8">아카이브</a>
+            <a href="guestbook.html" aria-current="page" class="opacity-60 transition-opacity hover:opacity-100 aria-[current=page]:font-bold aria-[current=page]:opacity-100 aria-[current=page]:underline aria-[current=page]:underline-offset-8">방명록</a>
+        </nav>
+    </header>
+
+    <!-- ================= Hero ================= -->
+    <section class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center md:pt-44">
+        <p class="mb-4 text-sm font-bold tracking-[3px] text-olive">GUESTBOOK</p>
+        <h1 class="mb-6 break-keep font-batang text-4xl leading-snug md:text-5xl">영화는 끝났지만,<br>대화는 이제 시작입니다.</h1>
+        <p class="break-keep leading-relaxed text-charcoal/70">본편을 봐주셔서 감사합니다. 짧은 관람평 한 줄이 큰 힘이 됩니다.</p>
+    </section>
+
+    <!-- ================= Write Form ================= -->
+    <section class="mx-auto max-w-2xl px-6 pb-16">
+        <form id="gb-form" class="rounded-3xl bg-white p-8 shadow-[0_20px_50px_rgba(44,44,44,0.08)]">
+            <label class="mb-2 block text-sm font-bold" for="gb-name">이름</label>
+            <input id="gb-name" type="text" maxlength="20" required placeholder="어떻게 불러드릴까요?"
+                   class="mb-5 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-sm outline-none transition-colors focus:border-apricot">
+            <label class="mb-2 block text-sm font-bold" for="gb-message">관람평</label>
+            <textarea id="gb-message" rows="4" maxlength="300" required placeholder="본편에서 인상 깊었던 장면이 있었나요?"
+                      class="mb-6 w-full resize-none rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-sm leading-relaxed outline-none transition-colors focus:border-apricot"></textarea>
+            <button type="submit"
+                    class="w-full rounded-full bg-apricot py-3.5 font-bold text-charcoal transition-colors hover:bg-charcoal hover:text-cream">관람평 남기기</button>
+        </form>
+    </section>
+
+    <!-- ================= Entries ================= -->
+    <section class="mx-auto max-w-2xl px-6 pb-32">
+        <h2 class="mb-8 text-center font-batang text-2xl">남겨주신 이야기들</h2>
+        <p id="gb-empty" class="rounded-3xl border border-dashed border-charcoal/20 py-14 text-center text-sm text-charcoal/50">아직 첫 번째 관람평을 기다리고 있어요.</p>
+        <ul id="gb-list" class="space-y-4"></ul>
+    </section>
+
+    <!-- ================= Footer ================= -->
+    <footer class="border-t border-charcoal/10 py-10 text-center text-sm text-charcoal/50">
+        <p class="mb-3">© 2026 Crafted with pure Vanilla Code. SSAFY 16th Portfolio.</p>
+        <div class="flex items-center justify-center gap-4">
+            <a href="https://github.com/CHOOSLA" target="_blank" class="text-olive underline underline-offset-4 hover:text-charcoal">GitHub</a>
+            <a href="https://choosla.tistory.com" target="_blank" class="text-olive underline underline-offset-4 hover:text-charcoal">Tistory</a>
+            <a href="index.html" class="text-olive underline underline-offset-4 hover:text-charcoal">← 본편으로 돌아가기</a>
+        </div>
+    </footer>
+
+    <script src="js/guestbook.js" defer></script>
+</body>
+</html>
