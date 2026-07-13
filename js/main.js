@@ -118,7 +118,6 @@ const DOM = {
         heading: document.getElementById('sa-heading'),
         clip: document.getElementById('sa-clip'),
         scale: document.getElementById('sa-scale'),
-        cardInner: document.getElementById('sa-card-inner'),
         items: document.querySelectorAll('.sa-item')
     },
     s3: {
@@ -322,16 +321,12 @@ function render() {
     DOM.s2_3.desc.style.opacity = mapRange(p, 0.52, 0.535, 0, 1) - s23Out;
     DOM.s2_3.desc.style.transform = `translateX(${mapRange(p, 0.52, 0.535, 50, 0)}px)`;
 
-    // ================= Scene About: 프로필 카드 플립 (0.56 ~ 0.63) =================
-    // fame-estate 이식 시퀀스: 클립 리빌(역보정 스케일) → rotateY 0~180° 스크럽 → 뒷면 스탯 스태거 → 아웃
+    // ================= Scene About: 프로필 (0.56 ~ 0.63) =================
+    // 시퀀스: 사진 클립 리빌(역보정 스케일) → 헤딩 → 스탯 타이포 스태거 → 아웃
     const saOut = mapRange(p, 0.615, 0.63, 0, 1);
 
-    // 1. 씬 제목
-    DOM.sa.heading.style.opacity = mapRange(p, 0.558, 0.572, 0, 1) - saOut;
-    DOM.sa.heading.style.transform = `translateY(${mapRange(p, 0.558, 0.572, 30, 0)}px)`;
-
-    // 2. 카드 클립 리빌: 인트로와 동일한 폴리곤 확장 + 내부 역보정 스케일 (수미상응)
-    const saRevealT = easeOutCubic(mapRange(p, 0.560, 0.575, 0, 1));
+    // 1. 사진 클립 리빌: 인트로와 동일한 폴리곤 확장 + 내부 역보정 스케일 (수미상응)
+    const saRevealT = easeOutCubic(mapRange(p, 0.560, 0.578, 0, 1));
     if (saRevealT <= 0) {
         DOM.sa.clip.style.opacity = 0;
         DOM.sa.clip.style.clipPath = 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)';
@@ -341,19 +336,19 @@ function render() {
     }
     DOM.sa.scale.style.transform = `scale(${mapRange(saRevealT, 0, 1, 0.35, 1)})`;
 
-    // 3. rotateY 스크럽: 90°에서 backface-visibility가 앞(사진)/뒤(스탯) 교체를 자동 처리
-    const saFlip = mapRange(p, 0.573, 0.598, 0, 180);
-    DOM.sa.cardInner.style.transform = `rotateY(${saFlip}deg)`;
+    // 2. 헤딩
+    DOM.sa.heading.style.opacity = mapRange(p, 0.574, 0.586, 0, 1) - saOut;
+    DOM.sa.heading.style.transform = `translateY(${mapRange(p, 0.574, 0.586, 30, 0)}px)`;
 
-    // 4. 뒷면 스탯 항목 스태거 (플립 완료 직후, 0.608까지 전원 등장 → 아웃 전 홀드 확보)
+    // 3. 스탯 타이포 스태거 (0.606까지 전원 등장 → 아웃 전 홀드)
     DOM.sa.items.forEach((item, idx) => {
-        const start = 0.597 + idx * 0.0015;
-        const t = mapRange(p, start, start + 0.004, 0, 1);
+        const start = 0.584 + idx * 0.004;
+        const t = mapRange(p, start, start + 0.010, 0, 1);
         item.style.opacity = t - saOut;
-        item.style.transform = `translateY(${mapRange(t, 0, 1, 18, 0)}px)`;
+        item.style.transform = `translateY(${mapRange(t, 0, 1, 24, 0)}px)`;
     });
 
-    // 5. 아웃: 씬 전체가 살짝 떠오르며 페이드
+    // 4. 아웃: 씬 전체가 살짝 떠오르며 페이드
     DOM.sa.section.style.transform = `translateY(${mapRange(p, 0.615, 0.63, 0, -40)}px)`;
 
     // ================= Scene 3: Skills (0.63 ~ 0.70) =================

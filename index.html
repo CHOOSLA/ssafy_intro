@@ -185,48 +185,40 @@
             </div>
         </section>
 
-        <!-- ================= Scene About: 주인공 프로필 카드 (rotateY 플립) ================= -->
+        <!-- ================= Scene About: 프로필 (사진 클립 리빌 + 스탯 타이포) ================= -->
         <section id="scene-about">
-            <div class="flex flex-col items-center gap-8">
-                <div id="sa-heading" class="text-center will-change-[transform,opacity] opacity-0">
-                    <p class="mb-3 text-sm font-bold tracking-[4px] text-olive">PROFILE</p>
-                    <h2 class="font-batang text-[clamp(1.8rem,3vw,3rem)] text-charcoal">이 영화의 주인공을 소개합니다</h2>
+            <div class="flex w-full max-w-5xl items-center justify-center gap-14 px-6 md:gap-24">
+                <!-- 좌: 사진 (클립 리빌) -->
+                <div id="sa-clip" class="shrink-0">
+                    <div id="sa-scale">
+                        <div class="sa-photo-card">
+                            <img id="sa-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1067&fit=crop&q=80" alt="추창우 프로필 사진 (교체 예정)">
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 클립 리빌 래퍼 → 스케일 래퍼(perspective) → 카드(rotateY) -->
-                <div id="sa-clip">
-                    <div id="sa-scale">
-                        <div id="sa-card-inner">
-                            <!-- 앞면: 사진 -->
-                            <div class="sa-face sa-front">
-                                <img id="sa-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1067&fit=crop&q=80" alt="추창우 프로필 사진 (교체 예정)">
-                                <div class="sa-front-name">
-                                    <span class="font-batang">추창우</span>
-                                </div>
-                            </div>
-                            <!-- 뒷면: 프로필 스탯 -->
-                            <div class="sa-face sa-back">
-                                <div class="sa-item">
-                                    <span class="sa-label">이름</span>
-                                    <span class="sa-value font-batang">추창우</span>
-                                </div>
-                                <div class="sa-item">
-                                    <span class="sa-label">MBTI</span>
-                                    <span class="sa-value font-batang">ESFP</span>
-                                </div>
-                                <div class="sa-item">
-                                    <span class="sa-label">거주지</span>
-                                    <span class="sa-value font-batang">수원</span>
-                                </div>
-                                <div class="sa-item">
-                                    <span class="sa-label">관심 분야</span>
-                                    <span class="sa-value font-batang">현재는 백엔드</span>
-                                </div>
-                                <div class="sa-item">
-                                    <span class="sa-label">취미</span>
-                                    <span class="sa-value font-batang">탁구 <em class="sa-new">NEW</em>, 볼링</span>
-                                </div>
-                            </div>
+                <!-- 우: 헤딩 + 프로필 스탯 타이포 -->
+                <div class="flex flex-col gap-9">
+                    <div id="sa-heading" class="will-change-[transform,opacity] opacity-0">
+                        <p class="mb-3 text-sm font-bold tracking-[4px] text-olive">PROFILE</p>
+                        <h2 class="font-batang text-[clamp(1.8rem,3vw,3rem)] text-charcoal">추창우를 소개합니다</h2>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <div class="sa-item">
+                            <span class="sa-label">MBTI</span>
+                            <span class="sa-value font-batang">ESFP</span>
+                        </div>
+                        <div class="sa-item">
+                            <span class="sa-label">거주지</span>
+                            <span class="sa-value font-batang">수원</span>
+                        </div>
+                        <div class="sa-item">
+                            <span class="sa-label">관심 분야</span>
+                            <span class="sa-value font-batang">현재는 백엔드</span>
+                        </div>
+                        <div class="sa-item">
+                            <span class="sa-label">취미</span>
+                            <span class="sa-value font-batang">탁구 <em class="sa-new">NEW</em>, 볼링</span>
                         </div>
                     </div>
                 </div>
