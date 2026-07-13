@@ -38,6 +38,16 @@
 </head>
 <body>
 
+    <!-- ================= Film Progress Bar (영화 재생 바 + 씬 챕터 마커) ================= -->
+    <div id="film-progress" class="pointer-events-none fixed top-0 left-0 z-[1200] h-[3px] w-full">
+        <div id="film-progress-fill" class="h-full w-full origin-left scale-x-0 bg-apricot will-change-transform"></div>
+        <span class="absolute top-0 left-[22%] h-full w-[2px] bg-charcoal/30" title="가치관"></span>
+        <span class="absolute top-0 left-[60%] h-full w-[2px] bg-charcoal/30" title="기술 역량"></span>
+        <span class="absolute top-0 left-[70%] h-full w-[2px] bg-charcoal/30" title="프로젝트"></span>
+        <span class="absolute top-0 left-[88%] h-full w-[2px] bg-charcoal/30" title="협업 스타일"></span>
+        <span class="absolute top-0 left-[96%] h-full w-[2px] bg-charcoal/30" title="연락처"></span>
+    </div>
+
     <!-- ================= Global Navigation (MPA 공통 컴포넌트) ================= -->
     <header id="global-nav" class="theme-light fixed top-0 left-0 z-[1100] flex w-full items-center justify-between px-6 py-5 pointer-events-none transition-colors duration-300 md:px-10">
         <a href="index.html" class="pointer-events-auto font-batang text-lg font-bold tracking-wider">추창우</a>
@@ -323,5 +333,6 @@
 
     <!-- Script Entry -->
     <script src="js/main.js" defer></script>
+    <script src="js/progress.js" defer></script>
 </body>
 </html>

@@ -35,6 +35,11 @@
 </head>
 <body class="bg-cream font-round text-charcoal">
 
+    <!-- ================= Film Progress Bar ================= -->
+    <div id="film-progress" class="pointer-events-none fixed top-0 left-0 z-[1200] h-[3px] w-full">
+        <div id="film-progress-fill" class="h-full w-full origin-left scale-x-0 bg-apricot will-change-transform"></div>
+    </div>
+
     <!-- ================= Global Navigation (MPA 공통 컴포넌트) ================= -->
     <header id="global-nav" class="theme-dark fixed top-0 left-0 z-[1100] flex w-full items-center justify-between bg-cream/80 px-6 py-5 backdrop-blur-sm transition-colors duration-300 md:px-10">
         <a href="index.html" class="font-batang text-lg font-bold tracking-wider">추창우</a>
@@ -84,5 +89,6 @@
     </footer>
 
     <script src="js/guestbook.js" defer></script>
+    <script src="js/progress.js" defer></script>
 </body>
 </html>
