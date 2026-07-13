@@ -415,14 +415,7 @@ h2, h3 { white-space: nowrap; } /* Prevent all section & component titles from w
     will-change: transform, opacity;
     white-space: nowrap; /* Prevent title from breaking into multiple lines */
 }
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 950px;
-    justify-content: center;
-    pointer-events: auto;
-}
+/* 스킬 그리드 컨테이너 레이아웃은 Tailwind 유틸리티로 전환됨 (index.html #s3-tags) */
 .skill-tag {
     display: flex;
     align-items: center;
@@ -472,45 +465,7 @@ h2, h3 { white-space: nowrap; } /* Prevent all section & component titles from w
     opacity: 0; /* Default invisible */
     will-change: transform, opacity;
 }
-.project-track {
-    display: flex;
-    gap: 5vw;
-    padding: 0 15vw;
-    height: 70vh;
-}
-.project-card {
-    width: 400px;
-    height: 100%;
-    background: var(--color-cream);
-    border-radius: 24px;
-    flex-shrink: 0;
-    box-shadow: 0 20px 50px rgba(44, 44, 44, 0.08);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    pointer-events: auto;
-    will-change: transform;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.project-card:hover { transform: translateY(-12px); }
-.p-img { width: 100%; height: 45%; object-fit: cover; }
-.p-content { padding: 30px; display: flex; flex-direction: column; flex: 1; }
-.p-stack { font-size: 0.85rem; color: var(--color-olive); font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; } /* Olive point color */
-.p-title { font-size: 1.5rem; margin-bottom: 15px; font-family: var(--font-title); }
-.p-desc { font-size: 1rem; color: rgba(44, 44, 44, 0.8); line-height: 1.6; margin-bottom: auto; word-break: keep-all; }
-.p-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: var(--color-charcoal);
-    color: var(--color-cream);
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    text-align: center;
-    transition: background 0.3s;
-}
-.p-link:hover { background: var(--color-olive); }
+/* 프로젝트 트랙/카드 정적 스타일은 Tailwind 유틸리티로 전환됨 (index.html #s4-track) */
 
 /* ==========================================================================
    Scene 5: Co-creation (Monologue Timeline)
@@ -570,40 +525,7 @@ h2, h3 { white-space: nowrap; } /* Prevent all section & component titles from w
     opacity: 0; /* Default invisible */
     will-change: transform, opacity;
 }
-.s6-links {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.s6-link {
-    padding: 12px 28px;
-    border: 1px solid rgba(250, 248, 245, 0.3);
-    border-radius: 50px;
-    color: var(--color-cream);
-    text-decoration: none;
-    font-size: 1.05rem;
-    opacity: 0; /* Default invisible */
-    transition: all 0.4s ease;
-    will-change: transform, opacity;
-    pointer-events: auto;
-}
-.s6-link:hover {
-    background: var(--color-cream);
-    color: var(--color-charcoal);
-}
-
-footer {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    text-align: center;
-    font-size: 0.9rem;
-    color: rgba(250, 248, 245, 0.6);
-    opacity: 0;
-    will-change: opacity;
-}
+/* 아웃트로 링크/푸터 정적 스타일은 Tailwind 유틸리티로 전환됨 (index.html #s6-links, #footer) */
 
 /* ==========================================================================
    Responsive Queries
@@ -613,6 +535,5 @@ footer {
     #s2-3-layout { flex-direction: column; }
     #s2-3-left { height: 40%; flex: none; }
     #s2-3-right { height: 60%; padding: 10%; text-align: center; }
-    .project-track { height: 60vh; gap: 8vw; }
-    .project-card { width: 85vw; }
+    /* 프로젝트 트랙/카드 반응형은 Tailwind 반응형 유틸리티(md:)로 전환됨 */
 }

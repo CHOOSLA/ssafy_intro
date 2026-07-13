@@ -173,7 +173,7 @@
         <!-- ================= Scene 3: Skills ================= -->
         <section id="scene-3">
             <h2 id="s3-title">핵심 기술 및 역량</h2>
-            <div class="skills-grid" id="s3-tags">
+            <div class="pointer-events-auto flex max-w-[950px] flex-wrap justify-center gap-5" id="s3-tags">
                 
                 <!-- React / TypeScript -->
                 <div class="skill-tag" style="--tech-color: #3178C6; --tech-color-rgb: 49, 120, 198;">
@@ -229,50 +229,50 @@
         <!-- ================= Scene 4: Projects (횡스크롤) ================= -->
         <section id="scene-4">
             <div class="h-scroll-wrapper" id="s4-wrapper">
-                <div class="project-track" id="s4-track">
-                    <div class="project-card">
-                        <img src="https://about-changwoo.me/Sampoom_thumb.webp" class="p-img" alt="Sampoom Management">
-                        <div class="p-content">
-                            <span class="p-stack">React, TypeScript, FSD Architecture</span>
-                            <h3 class="p-title">자동차 제조 ERP '삼품관리'</h3>
-                            <p class="p-desc">재고, 생산, 인사 등 7개 핵심 모듈로 구성된 전사적 자원 관리 시스템입니다. FSD 아키텍처 도입 및 OpenAPI Code Generator로 타입 안정성을 설계했습니다.</p>
-                            <a href="https://github.com/CHOOSLA/Sampoom-Management-Frontend" target="_blank" class="p-link">View GitHub</a>
+                <div class="flex h-[60vh] gap-[8vw] px-[15vw] md:h-[70vh] md:gap-[5vw]" id="s4-track">
+                    <div class="pointer-events-auto flex h-full w-[85vw] shrink-0 flex-col overflow-hidden rounded-3xl bg-cream shadow-[0_20px_50px_rgba(44,44,44,0.08)] transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-3 md:w-[400px]">
+                        <img src="https://about-changwoo.me/Sampoom_thumb.webp" class="h-[45%] w-full object-cover" alt="Sampoom Management">
+                        <div class="flex flex-1 flex-col p-[30px]">
+                            <span class="mb-2.5 text-[0.85rem] font-bold tracking-[0.5px] text-olive">React, TypeScript, FSD Architecture</span>
+                            <h3 class="mb-[15px] font-batang text-2xl">자동차 제조 ERP '삼품관리'</h3>
+                            <p class="mb-auto break-keep text-base leading-[1.6] text-[rgba(44,44,44,0.8)]">재고, 생산, 인사 등 7개 핵심 모듈로 구성된 전사적 자원 관리 시스템입니다. FSD 아키텍처 도입 및 OpenAPI Code Generator로 타입 안정성을 설계했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/Sampoom-Management-Frontend" target="_blank" class="mt-5 inline-block rounded-full bg-charcoal px-6 py-3 text-center text-[0.9rem] text-cream no-underline transition-colors duration-300 hover:bg-olive">View GitHub</a>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="https://about-changwoo.me/FlipFlick_thumb.webp" class="p-img" alt="FlipFlick">
-                        <div class="p-content">
-                            <span class="p-stack">React, TypeScript, Axios, Tailwind</span>
-                            <h3 class="p-title">영화 리뷰 & 토론 플랫폼 'FlipFlick'</h3>
-                            <p class="p-desc">영화 정보 공유 및 토론을 위한 커뮤니티 플랫폼입니다. 공통 디자인 시스템 구축, Axios 통신 모듈 설계 및 모듈형 홈 UI 개발을 주도했습니다.</p>
-                            <a href="https://github.com/CHOOSLA/FlipFlick_FE" target="_blank" class="p-link">View GitHub</a>
+                    <div class="pointer-events-auto flex h-full w-[85vw] shrink-0 flex-col overflow-hidden rounded-3xl bg-cream shadow-[0_20px_50px_rgba(44,44,44,0.08)] transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-3 md:w-[400px]">
+                        <img src="https://about-changwoo.me/FlipFlick_thumb.webp" class="h-[45%] w-full object-cover" alt="FlipFlick">
+                        <div class="flex flex-1 flex-col p-[30px]">
+                            <span class="mb-2.5 text-[0.85rem] font-bold tracking-[0.5px] text-olive">React, TypeScript, Axios, Tailwind</span>
+                            <h3 class="mb-[15px] font-batang text-2xl">영화 리뷰 & 토론 플랫폼 'FlipFlick'</h3>
+                            <p class="mb-auto break-keep text-base leading-[1.6] text-[rgba(44,44,44,0.8)]">영화 정보 공유 및 토론을 위한 커뮤니티 플랫폼입니다. 공통 디자인 시스템 구축, Axios 통신 모듈 설계 및 모듈형 홈 UI 개발을 주도했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/FlipFlick_FE" target="_blank" class="mt-5 inline-block rounded-full bg-charcoal px-6 py-3 text-center text-[0.9rem] text-cream no-underline transition-colors duration-300 hover:bg-olive">View GitHub</a>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="https://about-changwoo.me/Campick_thumb.webp" class="p-img" alt="Campick">
-                        <div class="p-content">
-                            <span class="p-stack">Java, Spring Boot, Redis, MySQL</span>
-                            <h3 class="p-title">캠핑카 중고 거래 플랫폼 'Campick'</h3>
-                            <p class="p-desc">캠핑카와 관련 장비를 안전하게 거래하는 마켓플레이스입니다. 백엔드 개발자로서 차량 옵션/파츠 데이터 처리 최적화 및 Redis 기반 인증을 구축했습니다.</p>
-                            <a href="https://github.com/CHOOSLA/Campick-BE" target="_blank" class="p-link">View GitHub</a>
+                    <div class="pointer-events-auto flex h-full w-[85vw] shrink-0 flex-col overflow-hidden rounded-3xl bg-cream shadow-[0_20px_50px_rgba(44,44,44,0.08)] transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-3 md:w-[400px]">
+                        <img src="https://about-changwoo.me/Campick_thumb.webp" class="h-[45%] w-full object-cover" alt="Campick">
+                        <div class="flex flex-1 flex-col p-[30px]">
+                            <span class="mb-2.5 text-[0.85rem] font-bold tracking-[0.5px] text-olive">Java, Spring Boot, Redis, MySQL</span>
+                            <h3 class="mb-[15px] font-batang text-2xl">캠핑카 중고 거래 플랫폼 'Campick'</h3>
+                            <p class="mb-auto break-keep text-base leading-[1.6] text-[rgba(44,44,44,0.8)]">캠핑카와 관련 장비를 안전하게 거래하는 마켓플레이스입니다. 백엔드 개발자로서 차량 옵션/파츠 데이터 처리 최적화 및 Redis 기반 인증을 구축했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/Campick-BE" target="_blank" class="mt-5 inline-block rounded-full bg-charcoal px-6 py-3 text-center text-[0.9rem] text-cream no-underline transition-colors duration-300 hover:bg-olive">View GitHub</a>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="https://about-changwoo.me/Progmong_thumb.webp" class="p-img" alt="Progmong">
-                        <div class="p-content">
-                            <span class="p-stack">React, TypeScript, Styled Components</span>
-                            <h3 class="p-title">개발자 RPG 커뮤니티 '프로그몽'</h3>
-                            <p class="p-desc">개발자의 학습과 성장을 RPG 게임으로 게이미피케이션한 커뮤니티입니다. 반응형 듀얼 레이아웃 설계 및 XSS 방어 콘텐츠 렌더링 파이프라인을 구축했습니다.</p>
-                            <a href="https://github.com/CHOOSLA/Progmong-FE" target="_blank" class="p-link">View GitHub</a>
+                    <div class="pointer-events-auto flex h-full w-[85vw] shrink-0 flex-col overflow-hidden rounded-3xl bg-cream shadow-[0_20px_50px_rgba(44,44,44,0.08)] transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-3 md:w-[400px]">
+                        <img src="https://about-changwoo.me/Progmong_thumb.webp" class="h-[45%] w-full object-cover" alt="Progmong">
+                        <div class="flex flex-1 flex-col p-[30px]">
+                            <span class="mb-2.5 text-[0.85rem] font-bold tracking-[0.5px] text-olive">React, TypeScript, Styled Components</span>
+                            <h3 class="mb-[15px] font-batang text-2xl">개발자 RPG 커뮤니티 '프로그몽'</h3>
+                            <p class="mb-auto break-keep text-base leading-[1.6] text-[rgba(44,44,44,0.8)]">개발자의 학습과 성장을 RPG 게임으로 게이미피케이션한 커뮤니티입니다. 반응형 듀얼 레이아웃 설계 및 XSS 방어 콘텐츠 렌더링 파이프라인을 구축했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/Progmong-FE" target="_blank" class="mt-5 inline-block rounded-full bg-charcoal px-6 py-3 text-center text-[0.9rem] text-cream no-underline transition-colors duration-300 hover:bg-olive">View GitHub</a>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="https://user-images.githubusercontent.com/87767242/161129056-8fc8493f-88a9-4110-871b-d46e7c78dff2.gif" class="p-img" alt="Green Plogging">
-                        <div class="p-content">
-                            <span class="p-stack">Flutter, Dart, Google Maps, Firebase</span>
-                            <h3 class="p-title">친환경 SNS 조깅 플랫폼 '그린플로깅'</h3>
-                            <p class="p-desc">GDSC 솔루션 챌린지 참가작으로, 조깅하며 쓰레기를 줍는 플로깅 활동의 SNS 플랫폼입니다. 실시간 위치 추적 및 경로 시각화를 개발했습니다.</p>
-                            <a href="https://github.com/CHOOSLA/GDSC-Solution-Challenge-Green-Plogging-" target="_blank" class="p-link">View GitHub</a>
+                    <div class="pointer-events-auto flex h-full w-[85vw] shrink-0 flex-col overflow-hidden rounded-3xl bg-cream shadow-[0_20px_50px_rgba(44,44,44,0.08)] transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-3 md:w-[400px]">
+                        <img src="https://user-images.githubusercontent.com/87767242/161129056-8fc8493f-88a9-4110-871b-d46e7c78dff2.gif" class="h-[45%] w-full object-cover" alt="Green Plogging">
+                        <div class="flex flex-1 flex-col p-[30px]">
+                            <span class="mb-2.5 text-[0.85rem] font-bold tracking-[0.5px] text-olive">Flutter, Dart, Google Maps, Firebase</span>
+                            <h3 class="mb-[15px] font-batang text-2xl">친환경 SNS 조깅 플랫폼 '그린플로깅'</h3>
+                            <p class="mb-auto break-keep text-base leading-[1.6] text-[rgba(44,44,44,0.8)]">GDSC 솔루션 챌린지 참가작으로, 조깅하며 쓰레기를 줍는 플로깅 활동의 SNS 플랫폼입니다. 실시간 위치 추적 및 경로 시각화를 개발했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/GDSC-Solution-Challenge-Green-Plogging-" target="_blank" class="mt-5 inline-block rounded-full bg-charcoal px-6 py-3 text-center text-[0.9rem] text-cream no-underline transition-colors duration-300 hover:bg-olive">View GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -309,11 +309,11 @@
         <section id="scene-6">
             <h2 id="s6-main">끝까지 살펴봐 주셔서 감사합니다.</h2>
             <p id="s6-sub">커피 한잔하며 더 이야기 나눠요</p>
-            <div class="s6-links" id="s6-links">
-                <a href="https://github.com/CHOOSLA" target="_blank" class="s6-link">GitHub</a>
-                <a href="https://choosla.tistory.com" target="_blank" class="s6-link">Tistory</a>
+            <div class="mb-20 flex flex-wrap justify-center gap-5" id="s6-links">
+                <a href="https://github.com/CHOOSLA" target="_blank" class="s6-link pointer-events-auto rounded-full border border-cream/30 px-7 py-3 text-[1.05rem] text-cream no-underline opacity-0 transition-all duration-[400ms] hover:bg-cream hover:text-charcoal">GitHub</a>
+                <a href="https://choosla.tistory.com" target="_blank" class="s6-link pointer-events-auto rounded-full border border-cream/30 px-7 py-3 text-[1.05rem] text-cream no-underline opacity-0 transition-all duration-[400ms] hover:bg-cream hover:text-charcoal">Tistory</a>
             </div>
-            <footer id="footer">
+            <footer id="footer" class="absolute bottom-10 w-full text-center text-[0.9rem] text-cream/60 opacity-0">
                 <p>© 2026 Crafted with pure Vanilla Code. SSAFY 16th Portfolio.</p>
             </footer>
         </section>
