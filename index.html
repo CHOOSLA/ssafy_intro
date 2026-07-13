@@ -64,22 +64,32 @@
             <!-- 4 Full-Screen Image Slides (Fame-Estate Style) -->
             <div class="s1-slides-container">
                 <div class="s1-slide" id="s1-slide-1">
-                    <img src="https://picsum.photos/id/160/1920/1080" alt="Intro Photo 2">
+                    <img src="https://about-changwoo.me/Sampoom_thumb.webp" alt="자동차 제조 ERP 삼품관리">
                 </div>
                 <div class="s1-slide" id="s1-slide-2">
-                    <img src="https://picsum.photos/id/319/1920/1080" alt="Intro Photo 3">
+                    <img src="https://about-changwoo.me/FlipFlick_thumb.webp" alt="영화 리뷰 및 토론 플랫폼 FlipFlick">
                 </div>
                 <div class="s1-slide" id="s1-slide-3">
-                    <img src="https://picsum.photos/id/370/1920/1080" alt="Intro Photo 4">
+                    <img src="https://about-changwoo.me/Progmong_thumb.webp" alt="개발자 RPG 커뮤니티 프로그몽">
                 </div>
                 <div class="s1-slide" id="s1-slide-4">
-                    <img src="https://picsum.photos/id/60/1920/1080" alt="Intro Photo 5">
+                    <img src="https://about-changwoo.me/Campick_thumb.webp" alt="캠핑카 중고 거래 플랫폼 Campick">
                 </div>
             </div>
 
-            <!-- Intro Curtain Overlay (Stage sliding doors) -->
-            <div id="intro-curtain-left" class="curtain-door"></div>
-            <div id="intro-curtain-right" class="curtain-door"></div>
+            <!-- Intro Curtain Container (Expands from center, then splits internally) -->
+            <div id="curtain-container">
+                <div id="intro-curtain-left" class="curtain-door">
+                    <div class="curtain-text-wrapper left-align">
+                        <h2 class="curtain-title">"세상에 틀린 코드는 없다"<br>— 코드의 가치를 알아보는 협업가</h2>
+                    </div>
+                </div>
+                <div id="intro-curtain-right" class="curtain-door">
+                    <div class="curtain-text-wrapper right-align">
+                        <h2 class="curtain-title">"세상에 틀린 코드는 없다"<br>— 코드의 가치를 알아보는 협업가</h2>
+                    </div>
+                </div>
+            </div>
 
             <div class="scene-content" style="z-index: 90;">
                 <div id="s1-text-wrapper">
@@ -91,12 +101,15 @@
 
         <!-- ================= Scene 2.1: Identity Loop 1 (협업) ================= -->
         <section id="scene-2-1">
-            <img src="https://picsum.photos/id/312/800/600" class="s2-1-img" id="s2-1-img1" alt="Collaboration 1">
-            <img src="https://picsum.photos/id/156/800/600" class="s2-1-img" id="s2-1-img2" alt="Collaboration 2">
-            <img src="https://picsum.photos/id/292/800/600" class="s2-1-img" id="s2-1-img3" alt="Collaboration 3">
+
             <div id="s2-1-content">
-                <h2 id="s2-1-title">세상에 틀린 코드는 없다</h2>
-                <p id="s2-1-desc">팀원 하나하나의 치열한 고민이 담긴 코드는 각자의 합당한 이유가 있다고 믿습니다. 코드 리뷰는 비판이 아닌, 서로의 의도를 묻고 더 나은 방향을 함께 찾아가는 '페어 프로그래밍'의 연장선입니다. 긍정적인 피드백과 적극적인 수용으로 팀의 심리적 안전감을 높이고, 시너지를 폭발시킵니다.</p>
+                <p id="s2-1-desc">
+                    <span class="reveal-span">팀원 하나하나의 치열한 고민이 담긴 코드는</span>
+                    <span class="reveal-span">결국 프로젝트를 더 나은 방향으로 이끄는</span>
+                    <span class="reveal-span">소중한 '이정표'라 믿습니다.</span><br>
+                    <span class="reveal-span">팀원들의 노력과 코드의 가치를</span>
+                    <span class="reveal-span">진심으로 알아주고 존중하며 협업합니다.</span>
+                </p>
             </div>
         </section>
 
@@ -107,8 +120,8 @@
                 <div id="s2-2-overlay"></div>
             </div>
             <div id="s2-2-content">
-                <h2 id="s2-2-title">프로젝트에 스며드는 카멜레온</h2>
-                <p id="s2-2-desc">스타트업이나 기획이 빠르게 변하는 환경에서는 완벽함보다 타이밍이 중요할 때가 있습니다. 빠른 MVP(Minimum Viable Product) 빌드로 시장의 반응을 먼저 살피고, 단순 반복되는 워크플로우를 자동화하여 팀의 리소스를 핵심 비즈니스 로직에 집중할 수 있도록 유연하게 대처합니다.</p>
+                <h2 id="s2-2-title">"프로젝트에 스며드는 카멜레온"<br>— 상황 맞춤형 유연한 기술력</h2>
+                <p id="s2-2-desc">팀의 분위기와 프로젝트 스타일에 맞추어 유연하게 대응합니다. 빠른 MVP 개발이 필요할 때는 신속하게, 기술적 깊이가 필요할 때는 끝장 스터디와 공식 문서 기반의 리뷰를 주도합니다. 비효율적인 귀찮은 반복 작업은 워크플로우를 구축해 똑똑하게 자동화합니다.</p>
             </div>
         </section>
 
@@ -119,8 +132,8 @@
                     <img src="https://picsum.photos/id/660/1000/1500" id="s2-3-img" alt="Communication">
                 </div>
                 <div id="s2-3-right">
-                    <h2 id="s2-3-title">경청에서 대안을 찾는<br>네비게이터</h2>
-                    <p id="s2-3-desc">기획자, 디자이너, 때로는 고객의 목소리까지. 다양한 직군의 언어를 이해하고 번역하여 기술적인 대안을 제시합니다. 막연한 요구사항 속에서 핵심을 파악하고, 기술적 제약 안에서도 모두가 만족할 수 있는 최선의 타협점, 즉 가장 합리적인 '네비게이션 경로'를 탐색합니다.</p>
+                    <h2 id="s2-3-title">"경청에서 대안을 찾는 네비게이터"<br>— 공감 중심의 소통가</h2>
+                    <p id="s2-3-desc">개발을 '견고한 하나의 건물을 올리는 여정'으로 바라봅니다. 그 힘든 여정 속에서 발생하는 마찰과 어려움을 단순한 소음이 아닌 '가치를 높이기 위한 과정'으로 받아들입니다. 동료들의 목소리를 경청하고 공감하여, 모두가 만족할 수 있는 최선의 방향성을 제시합니다.</p>
                 </div>
             </div>
         </section>
@@ -129,14 +142,55 @@
         <section id="scene-3">
             <h2 id="s3-title">Tech & Capabilities</h2>
             <div class="skills-grid" id="s3-tags">
-                <div class="skill-tag">React / Vue 3</div>
-                <div class="skill-tag">Vanilla JS / TypeScript</div>
-                <div class="skill-tag">HTML5 / CSS3</div>
-                <div class="skill-tag">웹 보안 (OWASP Top 10)</div>
-                <div class="skill-tag">AWS (EC2, S3)</div>
-                <div class="skill-tag">CI/CD (GitHub Actions)</div>
-                <div class="skill-tag">Git / GitHub</div>
-                <div class="skill-tag">Agile / Scrum</div>
+                
+                <!-- React / TypeScript -->
+                <div class="skill-tag" style="--tech-color: #3178C6; --tech-color-rgb: 49, 120, 198;">
+                    <svg class="tech-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>React</title><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>
+                    <span>React / TypeScript</span>
+                </div>
+
+                <!-- Java / Spring Boot -->
+                <div class="skill-tag" style="--tech-color: #6DB33F; --tech-color-rgb: 109, 179, 63;">
+                    <svg class="tech-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Spring Boot</title><path d="m23.693 10.7058-4.73-8.1844c-.4094-.7106-1.4166-1.2942-2.2402-1.2942H7.2725c-.819 0-1.8308.5836-2.2402 1.2942L.307 10.7058c-.4095.7106-.4095 1.873 0 2.5837l4.7252 8.189c.4094.7107 1.4166 1.2943 2.2402 1.2943h9.455c.819 0 1.826-.5836 2.2402-1.2942l4.7252-8.189c.4095-.7107.4095-1.8732 0-2.5838zM10.9763 5.7547c0-.5365.4377-.9742.9742-.9742s.9742.4377.9742.9742v5.8217c0 .5366-.4377.9742-.9742.9742s-.9742-.4376-.9742-.9742zm.9742 12.4294c-3.6427 0-6.6077-2.965-6.6077-6.6077.0047-2.0896.993-4.0521 2.6685-5.304a.8657.8657 0 0 1 1.2142.1788.8657.8657 0 0 1-.1788 1.2143c-2.1602 1.6048-2.612 4.6592-1.0072 6.8194 1.6049 2.1603 4.6593 2.612 6.8195 1.0072 1.2378-.9177 1.9673-2.372 1.9673-3.9157a4.8972 4.8972 0 0 0-1.9861-3.925c-.386-.2824-.466-.8284-.1836-1.2143.2824-.386.8283-.466 1.2143-.1835 1.6895 1.2471 2.6826 3.2238 2.6873 5.3228 0 3.6474-2.965 6.6077-6.6077 6.6077z"/></svg>
+                    <span>Java / Spring Boot</span>
+                </div>
+
+                <!-- Flutter / Dart -->
+                <div class="skill-tag" style="--tech-color: #02569B; --tech-color-rgb: 2, 86, 155;">
+                    <svg class="tech-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Flutter</title><path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>
+                    <span>Flutter / Dart</span>
+                </div>
+
+                <!-- FSD (Feature Sliced Design) -->
+                <div class="skill-tag" style="--tech-color: #6366F1; --tech-color-rgb: 99, 102, 241;">
+                    <svg class="tech-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5v-3.5L12 18.5 2 13.5v3.5z"/><path d="M2 12l10 5 10-5V8.5L12 13.5 2 8.5v3.5z"/></svg>
+                    <span>FSD (Feature Sliced Design)</span>
+                </div>
+
+                <!-- Redis / Spring Security -->
+                <div class="skill-tag" style="--tech-color: #D82C20; --tech-color-rgb: 216, 44, 32;">
+                    <svg class="tech-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Redis</title><path d="M22.71 13.145c-1.66 2.092-3.452 4.483-7.038 4.483-3.203 0-4.397-2.825-4.48-5.12.701 1.484 2.073 2.685 4.214 2.63 4.117-.133 6.94-3.852 6.94-7.239 0-4.05-3.022-6.972-8.268-6.972-3.752 0-8.4 1.428-11.455 3.685C2.59 6.937 3.885 9.958 4.35 9.626c2.648-1.904 4.748-3.13 6.784-3.744C8.12 9.244.886 17.05 0 18.425c.1 1.261 1.66 4.648 2.424 4.648.232 0 .431-.133.664-.365a100.49 100.49 0 0 0 5.54-6.765c.222 3.104 1.748 6.898 6.014 6.898 3.819 0 7.604-2.756 9.33-8.965.2-.764-.73-1.361-1.261-.73zm-4.349-5.013c0 1.959-1.926 2.922-3.685 2.922-.941 0-1.664-.247-2.235-.568 1.051-1.592 2.092-3.225 3.21-4.973 1.972.334 2.71 1.43 2.71 2.619z"/></svg>
+                    <span>Redis / Spring Security</span>
+                </div>
+
+                <!-- 웹 보안 & XSS 방어 (DOMPurify) -->
+                <div class="skill-tag" style="--tech-color: #F57C00; --tech-color-rgb: 245, 124, 0;">
+                    <svg class="tech-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>AdGuard</title><path d="M12 0C8.249 0 3.725.861 0 2.755 0 6.845-.051 17.037 12 24 24.051 17.037 24 6.845 24 2.755 20.275.861 15.751 0 12 0zm-.106 15.429L6.857 9.612c.331-.239 1.75-1.143 2.794.042l2.187 2.588c.009-.001 5.801-5.948 5.815-5.938.246-.22.694-.503 1.204-.101l-6.963 9.226z" fill="currentColor"/></svg>
+                    <span>웹 보안 & XSS 방어 (DOMPurify)</span>
+                </div>
+
+                <!-- CI/CD (GitHub Actions) -->
+                <div class="skill-tag" style="--tech-color: #2088FF; --tech-color-rgb: 32, 136, 255;">
+                    <svg class="tech-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub Actions</title><path d="M10.984 13.836a.5.5 0 0 1-.353-.146l-.745-.743a.5.5 0 1 1 .706-.708l.392.391 1.181-1.18a.5.5 0 0 1 .708.707l-1.535 1.533a.504.504 0 0 1-.354.146zm9.353-.147l1.534-1.532a.5.5 0 0 0-.707-.707l-1.181 1.18-.392-.391a.5.5 0 1 0-.706.708l.746.743a.497.497 0 0 0 .706-.001zM4.527 7.452l2.557-1.585A1 1 0 0 0 7.09 4.17L4.533 2.56A1 1 0 0 0 3 3.406v3.196a1.001 1.001 0 0 0 1.527.85zm2.03-2.436L4 6.602V3.406l2.557 1.61zM24 12.5c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3h-2.08a3.503 3.503 0 0 1-3.46 3 3.502 3.502 0 0 1-3.46-3h-.558c-.972 0-1.85-.399-2.482-1.042V17c0 1.654 1.346 3 3 3h.04c.244-1.693 1.7-3 3.46-3 1.93 0 3.5 1.57 3.5 3.5S13.43 24 11.5 24a3.502 3.502 0 0 1-3.46-3H8c-2.206 0-4-1.794-4-4V9.899A5.008 5.008 0 0 1 0 5c0-2.757 2.243-5 5-5s5 2.243 5 5a5.005 5.005 0 0 1-4.952 4.998A2.482 2.482 0 0 0 7.482 12h.558c.244-1.693 1.7-3 3.46-3a3.502 3.502 0 0 1 3.46 3h2.08a3.503 3.503 0 0 1 3.46-3c1.93 0 3.5 1.57 3.5 3.5zm-15 8c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5-1.122-2.5-2.5-2.5S9 19.122 9 20.5zM5 9c2.206 0 4-1.794 4-4S7.206 1 5 1 1 2.794 1 5s1.794 4 4 4zm9 3.5c0-1.378-1.122-2.5-2.5-2.5S9 11.122 9 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm9 0c0-1.378-1.122-2.5-2.5-2.5S18 11.122 18 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm-13 8a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm12 0c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3.002c-.007.001-.013.005-.021.005l-.506.017h-.017a.5.5 0 0 1-.016-.999l.506-.017c.018-.002.035.006.052.007A3.503 3.503 0 0 1 20.5 17c1.93 0 3.5 1.57 3.5 3.5zm-1 0c0-1.378-1.122-2.5-2.5-2.5S18 19.122 18 20.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5z"/></svg>
+                    <span>CI/CD (GitHub Actions)</span>
+                </div>
+
+                <!-- Git / GitHub -->
+                <div class="skill-tag" style="--tech-color: #F05032; --tech-color-rgb: 240, 80, 50;">
+                    <svg class="tech-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Git</title><path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/></svg>
+                    <span>Git / GitHub</span>
+                </div>
+
             </div>
         </section>
 
@@ -145,57 +199,48 @@
             <div class="h-scroll-wrapper" id="s4-wrapper">
                 <div class="project-track" id="s4-track">
                     <div class="project-card">
-                        <img src="https://picsum.photos/id/367/600/400" class="p-img" alt="Project 1">
+                        <img src="https://about-changwoo.me/Sampoom_thumb.webp" class="p-img" alt="Sampoom Management">
                         <div class="p-content">
-                            <span class="p-stack">Vue 3, Pinia, AWS</span>
-                            <h3 class="p-title">Next-Gen 에듀테크 플랫폼</h3>
-                            <p class="p-desc">실시간 화상 강의 및 인터랙티브 화이트보드 기능 구현을 통해 학습의 물리적 경계를 허문 플랫폼입니다.</p>
-                            <a href="#" class="p-link">View GitHub</a>
+                            <span class="p-stack">React, TypeScript, FSD Architecture</span>
+                            <h3 class="p-title">자동차 제조 ERP '삼품관리'</h3>
+                            <p class="p-desc">재고, 생산, 인사 등 7개 핵심 모듈로 구성된 전사적 자원 관리 시스템입니다. FSD 아키텍처 도입 및 OpenAPI Code Generator로 타입 안정성을 설계했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/Sampoom-Management-Frontend" target="_blank" class="p-link">View GitHub</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://picsum.photos/id/160/600/400" class="p-img" alt="Project 2">
+                        <img src="https://about-changwoo.me/FlipFlick_thumb.webp" class="p-img" alt="FlipFlick">
                         <div class="p-content">
-                            <span class="p-stack">React, TypeScript, OWASP</span>
-                            <h3 class="p-title">안전한 중고거래 모바일 웹</h3>
-                            <p class="p-desc">종단간 암호화 채팅 및 XSS/CSRF 방어 로직을 완벽하게 적용하여 사용자의 신뢰를 최우선으로 확보했습니다.</p>
-                            <a href="#" class="p-link">View GitHub</a>
+                            <span class="p-stack">React, TypeScript, Axios, Tailwind</span>
+                            <h3 class="p-title">영화 리뷰 & 토론 플랫폼 'FlipFlick'</h3>
+                            <p class="p-desc">영화 정보 공유 및 토론을 위한 커뮤니티 플랫폼입니다. 공통 디자인 시스템 구축, Axios 통신 모듈 설계 및 모듈형 홈 UI 개발을 주도했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/FlipFlick_FE" target="_blank" class="p-link">View GitHub</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://picsum.photos/id/488/600/400" class="p-img" alt="Project 3">
+                        <img src="https://about-changwoo.me/Campick_thumb.webp" class="p-img" alt="Campick">
                         <div class="p-content">
-                            <span class="p-stack">Vanilla JS, Node.js</span>
-                            <h3 class="p-title">사내 워크플로우 자동화 툴</h3>
-                            <p class="p-desc">사내 반복 업무를 스크립팅으로 자동화하여 부서 전체의 평균 업무 시간을 40% 이상 단축시켰습니다.</p>
-                            <a href="#" class="p-link">View GitHub</a>
+                            <span class="p-stack">Java, Spring Boot, Redis, MySQL</span>
+                            <h3 class="p-title">캠핑카 중고 거래 플랫폼 'Campick'</h3>
+                            <p class="p-desc">캠핑카와 관련 장비를 안전하게 거래하는 마켓플레이스입니다. 백엔드 개발자로서 차량 옵션/파츠 데이터 처리 최적화 및 Redis 기반 인증을 구축했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/Campick-BE" target="_blank" class="p-link">View GitHub</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://picsum.photos/id/3/600/400" class="p-img" alt="Project 4">
+                        <img src="https://about-changwoo.me/Progmong_thumb.webp" class="p-img" alt="Progmong">
                         <div class="p-content">
-                            <span class="p-stack">React Native, Redux</span>
-                            <h3 class="p-title">소셜 기반 루틴 트래커</h3>
-                            <p class="p-desc">사용자간 루틴 공유 및 응원 기능, 오프라인 모드를 지원하여 지속가능한 습관 형성을 돕습니다.</p>
-                            <a href="#" class="p-link">View GitHub</a>
+                            <span class="p-stack">React, TypeScript, Styled Components</span>
+                            <h3 class="p-title">개발자 RPG 커뮤니티 '프로그몽'</h3>
+                            <p class="p-desc">개발자의 학습과 성장을 RPG 게임으로 게이미피케이션한 커뮤니티입니다. 반응형 듀얼 레이아웃 설계 및 XSS 방어 콘텐츠 렌더링 파이프라인을 구축했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/Progmong-FE" target="_blank" class="p-link">View GitHub</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="https://picsum.photos/id/180/600/400" class="p-img" alt="Project 5">
+                        <img src="https://user-images.githubusercontent.com/87767242/161129056-8fc8493f-88a9-4110-871b-d46e7c78dff2.gif" class="p-img" alt="Green Plogging">
                         <div class="p-content">
-                            <span class="p-stack">Vue 3, OpenAI API</span>
-                            <h3 class="p-title">AI 기반 코드 리뷰어</h3>
-                            <p class="p-desc">깃허브 PR 생성 시 AI가 팀 컨벤션 및 보안 취약점을 자동 리뷰하여 시니어의 코드 리뷰 부담을 줄입니다.</p>
-                            <a href="#" class="p-link">View GitHub</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="https://picsum.photos/id/355/600/400" class="p-img" alt="Project 6">
-                        <div class="p-content">
-                            <span class="p-stack">HTML/CSS/JS</span>
-                            <h3 class="p-title">SSAFY 16기 네트워킹 허브</h3>
-                            <p class="p-desc">기수 동기들간의 포트폴리오 공유 및 익명 피드백 시스템을 구축하여 함께 성장하는 문화를 주도했습니다.</p>
-                            <a href="#" class="p-link">View GitHub</a>
+                            <span class="p-stack">Flutter, Dart, Google Maps, Firebase</span>
+                            <h3 class="p-title">친환경 SNS 조깅 플랫폼 '그린플로깅'</h3>
+                            <p class="p-desc">GDSC 솔루션 챌린지 참가작으로, 조깅하며 쓰레기를 줍는 플로깅 활동의 SNS 플랫폼입니다. 실시간 위치 추적 및 경로 시각화를 개발했습니다.</p>
+                            <a href="https://github.com/CHOOSLA/GDSC-Solution-Challenge-Green-Plogging-" target="_blank" class="p-link">View GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -235,7 +280,7 @@
             <div class="s6-links" id="s6-links">
                 <a href="#" class="s6-link">Email</a>
                 <a href="#" class="s6-link">KakaoTalk</a>
-                <a href="#" class="s6-link">GitHub</a>
+                <a href="https://github.com/CHOOSLA" target="_blank" class="s6-link">GitHub</a>
                 <a href="#" class="s6-link">Velog</a>
             </div>
             <footer id="footer">
